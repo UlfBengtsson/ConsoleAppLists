@@ -17,7 +17,54 @@ namespace ConsoleAppLists
 
             //DictEx1();
 
+            //ExceptionEx1();
+            ExceptionEx2();
+
         }//main
+
+        static void ExceptionEx1()
+        {
+            int[] numbers = new int[2];
+
+            try
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.WriteLine(numbers[i]);
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("You trided to access a index that dose not exist");
+            }
+            
+        }
+
+        static void ExceptionEx2()
+        {
+            while (true)//bad practic
+            {
+                try
+                {
+                    short number = short.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (ArgumentNullException)// not likly to happen
+                {
+                    Console.WriteLine("Nothing was given.");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Not a number.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number was too big.");
+                }
+
+            }
+
+        }
 
         static void DictEx1()
         {
